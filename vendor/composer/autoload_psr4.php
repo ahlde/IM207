@@ -6,5 +6,5 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Aries\\Dbmodel\\' => array($baseDir . '/app'),
+    'Geonzon\\Dbmodel\\' => array($baseDir . '/app'),
 );

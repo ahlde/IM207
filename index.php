@@ -2,7 +2,7 @@
 
 require_once 'vendor/autoload.php';
 
-use Aries\Dbmodel\Models\Post;
+use Geonzon\Dbmodel\Models\Post;
 
 session_start();
 

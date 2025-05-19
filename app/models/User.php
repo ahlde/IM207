@@ -1,9 +1,8 @@
 <?php
 
-namespace Aries\Dbmodel\Models;
+namespace Geonzon\Dbmodel\Models;
 
-use Aries\Dbmodel\Includes\Database;
-
+use Geonzon\Dbmodel\Includes\Database;
 
 class User extends Database {
     private $db;
@@ -14,7 +13,7 @@ class User extends Database {
     }
 
     public function login($data) {
-        $sql = "SELECT id, first_name, password FROM users WHERE username = :username";
+        $sql = "SELECT id, first_name, password FROM user WHERE username = :username";
         $stmt = $this->db->prepare($sql);
         $stmt->execute([
             'username' => $data['username'],
@@ -23,7 +22,8 @@ class User extends Database {
     }
 
     public function register($data) {
-        $sql = "INSERT INTO users (first_name, last_name, username, password) VALUES (:first_name, :last_name, :username, :password)";
+        $sql = "INSERT INTO user (first_name, last_name, username, password) 
+                VALUES (:first_name, :last_name, :username, :password)";
         $stmt = $this->db->prepare($sql);
         $stmt->execute([
             'first_name' => $data['first_name'],
@@ -36,23 +36,25 @@ class User extends Database {
     }
 
     public function update($data) {
-        $sql = "UPDATE users SET name = :name, email = :email, password = :password WHERE id = :id";
+        $sql = "UPDATE user SET first_name = :first_name, last_name = :last_name, username = :username, password = :password 
+                WHERE id = :id";
         $stmt = $this->db->prepare($sql);
         $stmt->execute([
             'id' => $data['id'],
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => $data['password']
+            'first_name' => $data['first_name'],
+            'last_name' => $data['last_name'],
+            'username' => $data['username'],
+            'password' => password_hash($data['password'], PASSWORD_BCRYPT)
         ]);
         return "Record UPDATED successfully";
     }
 
     public function delete($id) {
-        $sql = "DELETE FROM users WHERE id = :id";
+        $sql = "DELETE FROM user WHERE id = :id";
         $stmt = $this->db->prepare($sql);
         $stmt->execute([
             'id' => $id
         ]);
         return "Record DELETED successfully";
-    }   
+    }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Aries\Dbmodel\Includes;
+namespace Geonzon\Dbmodel\Includes;
 
 use PDO;
 use PDOException;

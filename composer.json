@@ -1,14 +1,14 @@
 {
-    "name": "aries/dbmodel",
+    "name": "geonzon/dbmodel",
     "autoload": {
         "psr-4": {
-            "Aries\\Dbmodel\\": "app/"
+            "Geonzon\\Dbmodel\\": "app/"
         }
     },
     "authors": [
         {
-            "name": "Aries Vincent Dajay",
-            "email": "avdajay@gmail.com"
+            "name": "Ahlde Geiham Geonzon",
+            "email": "ahldegeonzon30@gmail.com"
         }
     ],
     "require": {}
